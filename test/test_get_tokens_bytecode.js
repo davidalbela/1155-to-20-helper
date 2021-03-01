@@ -14,6 +14,11 @@ describe('Bytecode for token metadata', () => {
     assert.equal(bytes2, "0x57726170706564204552432d3131353500000000000000000000000000000020574d54000000000000000000000000000000000000000000000000000000000612");
   });
 
+  if('Test 10 decimals', () => {
+    const bytes = getTokenBytecode("Wrapped ERC-1155", "cWMT", 10);
+    assert.equal(bytes2, "0x57726170706564204552432d313135350000000000000000000000000000002063574d54000000000000000000000000000000000000000000000000000000080a");
+  });
+
   it('should throw an error on the tokenName', async () => {
     try {
       const bytes3 = getTokenBytecode("Wrapped ERC-1155 Gnosis Auctions", "CtGA", 6);

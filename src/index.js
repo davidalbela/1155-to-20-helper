@@ -28,6 +28,16 @@ const getTokenBytecode = (tokenName, tokenSymbol, decimals) => {
   return `0x${calculateBytes32(tokenName)}${calculateBytes32(tokenSymbol)}${decimalToHex(decimals)}`;
 }
 
+const getBatchTokenBytecode = (tokenNameArray, tokenSymbolArray, decimalsArray) => {
+  const result = new Array();
+  console.log(tokenNameArray);
+  for (i=0; i < tokenNameArray.length; i++) {
+    result.push(`${calculateBytes32(tokenNameArray[i])}${calculateBytes32(tokenSymbolArray[i])}${decimalToHex(decimalsArray[i])}`);
+  }
+  return `0x${result.join('')}`;
+}
+
 module.exports = {
-  getTokenBytecode
+  getTokenBytecode,
+  getBatchTokenBytecode
 }
