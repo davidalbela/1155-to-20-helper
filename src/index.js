@@ -30,7 +30,6 @@ const getTokenBytecode = (tokenName, tokenSymbol, decimals) => {
 
 const getBatchTokenBytecode = (tokenNameArray, tokenSymbolArray, decimalsArray) => {
   const result = new Array();
-  console.log(tokenNameArray);
   for (i=0; i < tokenNameArray.length; i++) {
     result.push(`${calculateBytes32(tokenNameArray[i])}${calculateBytes32(tokenSymbolArray[i])}${decimalToHex(decimalsArray[i])}`);
   }
